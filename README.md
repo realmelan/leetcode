@@ -10,5 +10,10 @@ Le Bruijn sequence: given (n, k), generate a string of digits which covers all n
 
 Fenwick Tree:
     To get sums of any range in O(logn) and update the data structure also in O(logn), Fenwich tree(or Binary Indexed Tree) will help. see https://en.wikipedia.org/wiki/Fenwick_tree
+    
+Disjoint set:
+    https://en.wikipedia.org/wiki/Disjoint-set_data_structure
+
+
 
 
