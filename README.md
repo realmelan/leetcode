@@ -7,3 +7,8 @@ Gray code: consecutive codes differ in only one bit
 
 Le Bruijn sequence: given (n, k), generate a string of digits which covers all n-lenght k-digit sequence.
     Generate a list of necklace (which is the largest among all rotations), and reduce them to their simplest form (A^p to A)
+
+Fenwick Tree:
+    To get sums of any range in O(logn) and update the data structure also in O(logn), Fenwich tree(or Binary Indexed Tree) will help.
+
+
