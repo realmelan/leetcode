@@ -1,4 +1,5 @@
-1, Steihaus-Johnson-Trotter algorithm:
+H3 Steihaus-Johnson-Trotter algorithm:
+```
   procedure Move( x, d : N);
   local j : N;
   begin
@@ -15,8 +16,10 @@
         Move( n, dir[n] ); Perm( n + 1 );
       dir[n] := -dir[n];
     end of Perm;
-  
-  2, iterative of SJT algorithm:
+```
+
+H3 iterative of SJT algorithm:
+```
     procedure Next;
     {Assumes that ¼0 = ¼n+1 = n + 1}
     begin
@@ -26,3 +29,4 @@
       val[pos[m]] :=: val[pos[m] + d[m]]; // update val
       pos[val[pos[m]]] :=: pos[m]; //update pos
     end of Next;
+```
