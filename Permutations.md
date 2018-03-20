@@ -1,4 +1,4 @@
-H3 Steihaus-Johnson-Trotter algorithm:
+###H3 Steihaus-Johnson-Trotter algorithm:
 ```
   procedure Move( x, d : N);
   local j : N;
@@ -19,7 +19,7 @@ H3 Steihaus-Johnson-Trotter algorithm:
     end of Perm;
 ```
 
-H3 iterative of SJT algorithm:
+###H3 iterative of SJT algorithm:
 ```
     procedure Next;
     {Assumes that ¼0 = ¼n+1 = n + 1}
