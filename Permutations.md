@@ -6,6 +6,7 @@ H3 Steihaus-Johnson-Trotter algorithm:
     j := pos[x]; val[j] := val[j + d]; val[j + d] := x;
     pos[x] := j + d; pos[val[j]] := j;
   end of Move;
+  
   procedure Perm ( n : N);
   local i : N;
   begin
