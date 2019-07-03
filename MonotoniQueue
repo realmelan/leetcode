@@ -18,3 +18,7 @@ Notice that when ai is added, all elements in (j, aj) in D such that aj is bigge
 hence they can be removed from D. Furthermore, if the element (i-L-1, ai−L−1) is in D (which will be located at the top of D if it exists),
 we remove that element as well. Lastly, we append ai at the back of D. Then we will have Q(i-L, i) = the top element in D
 when we reach index i. Since each element will enter and leave D only once, we have a total of O(N) operations. 
+
+
+New reference:
+https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/discuss/204290/Monotonic-Queue-Summary
