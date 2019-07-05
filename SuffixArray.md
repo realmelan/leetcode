@@ -1,10 +1,10 @@
-# Suffix Array can be used to find longest common substring of a string.
+# Suffix Array
+Suffix array can be used to find longest common substring of a string.
 * https://en.wikipedia.org/wiki/Suffix_array
 * https://en.wikipedia.org/wiki/LCP_array
 * http://web.stanford.edu/class/cs97si/suffix-array.pdf
 
-# How to efficiently build suffix array?
-* Kasai algorithm: https://www.geeksforgeeks.org/%C2%AD%C2%ADkasais-algorithm-for-construction-of-lcp-array-from-suffix-array/
+## How to efficiently build suffix array
 
 Below code is from http://web.stanford.edu/class/cs97si/suffix-array.pdf, which is O(n\*lgn\*lgn). The idea is that, the suffix array elements are all substring of the same string. If the rank of the first 2^k characters of a suffix, say *a*, is known, then the rank of the first 2^(k+1) can also be computed, as the second half of the 2^(k+1) characters is also the first half 2^k characters of another suffix, *b*.
 ```c
@@ -48,7 +48,9 @@ int main(void)
 }
 ```
 
-
+# Longest common prefix of a Suffix Array
+## how to efficiently compute LCP from given suffix array
+Kasai algorithm: https://www.geeksforgeeks.org/%C2%AD%C2%ADkasais-algorithm-for-construction-of-lcp-array-from-suffix-array/
 
 Problems:
 https://leetcode.com/problems/longest-duplicate-substring/
