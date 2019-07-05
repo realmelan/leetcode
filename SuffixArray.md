@@ -6,7 +6,7 @@
 # How to efficiently build suffix array?
 * Kasai algorithm: https://www.geeksforgeeks.org/%C2%AD%C2%ADkasais-algorithm-for-construction-of-lcp-array-from-suffix-array/
 
-Below code is from http://web.stanford.edu/class/cs97si/suffix-array.pdf
+Below code is from http://web.stanford.edu/class/cs97si/suffix-array.pdf, which is O(n\*lgn\*lgn). The idea is that, the suffix array elements are all substring of the same string. If the rank of the first 2^k characters of a suffix, say *a*, is known, then the rank of the first 2^(k+1) can also be computed, as the second half of the 2^(k+1) characters is also the first half 2^k characters of another suffix, *b*.
 ```c
 #include <cstdio>
 #include <cstring>
@@ -30,6 +30,8 @@ int main(void)
         P[0][i] = A[i] - 'a';
     for (stp = 1, cnt = 1; cnt >> 1 < N; stp ++, cnt <<= 1)
     {
+        // here, L[i] always stores the i-th suffix(from i'th char to n-1'th)
+        // p stores the index of the suffix.
         for (i = 0; i < N; i ++)
         {
             L[i].nr[0] = P[stp - 1][i];
@@ -37,6 +39,8 @@ int main(void)
             L[i].p = i;
         }
         sort(L, L + N, cmp);
+        // after sort, L[i] no longer stores the i-th suffix, rather the suffix that ranks (lexicographically) the i-th.
+        // P[round][i] stores the rank of the i-th suffix.
         for (i = 0; i < N; i ++)
             P[stp][L[i].p] = i > 0 && L[i].nr[0] == L[i - 1].nr[0] && L[i].nr[1] == L[i - 1].nr[1] ? P[stp][L[i - 1].p] : i;
     }
