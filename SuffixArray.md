@@ -53,6 +53,7 @@ int main(void)
 # Longest common prefix of a Suffix Array
 ## how to efficiently compute LCP from given suffix array
 Kasai algorithm: https://www.geeksforgeeks.org/%C2%AD%C2%ADkasais-algorithm-for-construction-of-lcp-array-from-suffix-array/
+
 Proof: http://www.mi.fu-berlin.de/wiki/pub/ABI/RnaSeqP4/suffix-array.pdf
 ```c++
 /* To construct and return LCP */
