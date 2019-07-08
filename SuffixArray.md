@@ -62,6 +62,36 @@ However, if LCP(i,j) is provided, then the total comparisons could be O(m), thus
 Kasai algorithm: https://www.geeksforgeeks.org/%C2%AD%C2%ADkasais-algorithm-for-construction-of-lcp-array-from-suffix-array/
 
 Proof: http://www.mi.fu-berlin.de/wiki/pub/ABI/RnaSeqP4/suffix-array.pdf
+
+let sufinv(i) = rank of i-th suffix, i.e. rank of S[i..n], and suftab(i) = suffix index of suffix in the i-th lexcographical order. 
+
+Starting from the longest suffix, for the i'th suffix, S[i..n]:<br>
+let h = lcp(S[i..n], S[suftab[sufinv[i]-1]], then lcp(S[i+1..n], S[suftab[sufinv[i]-1]+1..n]) >= h - 1. That is, if the lcp of the i-th suffix and the suffix ranked before it is h, then the suffix starting the next character of i-th suffix(i.e. S[i+1..n]) and the suffix starting from the second character of the suffix just before the i'th suffix (i.e., S[suftab[sufinv[i]-1]+1..n) has lcp that is at least h-1. 
+
+Note, the latter might not be ranked immediately before S[i+1..n], so S[i+1..n] and the predecessor of it should have at least h-1 common prefix, that is lcp(S[i+1..n], S[suftab[sufinv[i+1]-1]..n]) >= h-1, So, to compute the lcp for S[i+1..n] and the one ranked before it, the starting point of comparison should be h+(i+1).
+
+Note, h get reduced at most n times, and h <= n, so the bound for h is 2n, that is the total comparisons made to get the lcp values of adjacent suffix pairs is O(n).
+
+Here is phseudo code:
+```code
+1 GetHeight(S, suftab):
+2   for i = 1 to n do
+3       sufinv [ suftab [i]] = i;
+4   od
+5   h = 0;
+6   for i = 1 to n do
+7       if sufinv [i] > 1
+8       then
+9           k = suftab [ sufinv [i] - 1];
+10          while S[i + h] = S[k + h] do
+11              h++;
+12          od
+13          height [ sufinv [i]] = h;
+14          if h > 0 then h = h - 1; fi
+15      fi
+16  od
+```
+
 ```c++
 /* To construct and return LCP */
 vector<int> kasai(string txt, vector<int> suffixArr) 
