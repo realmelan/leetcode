@@ -5,8 +5,10 @@ Suffix array can be used to find longest common substring of a string.
 * http://web.stanford.edu/class/cs97si/suffix-array.pdf
 
 ## How to efficiently build suffix array
-
 Below code is from http://web.stanford.edu/class/cs97si/suffix-array.pdf, which is O(n\*lgn\*lgn). The idea is that, the suffix array elements are all substring of the same string. If the rank of the first 2^k characters of a suffix, say *a*, is known, then the rank of the first 2^(k+1) can also be computed, as the second half of the 2^(k+1) characters is also the first half 2^k characters of another suffix, *b*.
+
+This is prefix doubling by Karp, Miller and Rosenberg(1972).
+
 ```c
 #include <cstdio>
 #include <cstring>
