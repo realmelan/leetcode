@@ -49,6 +49,13 @@ int main(void)
     return 0;
 }
 ```
+# search pattern in text
+Given suffix array, appearances of a pattern can be searched in the suffix array using binary search, so total O(lgn) searches are needed. Naively each search needs to compare at most O(m) characters, thus total time would be O(mlgn).
+
+However, if LCP(i,j) is provided, then the total comparisons could be O(m), thus total time could be O(m + lgn). Let l=LCP(p, L) and r=LCP(P, r), M = (L+R)/2. Here is how to move left index(L) and right index(R) during binary search:
+* if LCP(L,M) > l=LCP(P,L), then M is more close to L than P, that is the l+1'th character of M is same as L's, but smaller than P's. l and r remain unchanged, L=M
+* if LCP(L,M) < l=LCP(P,L), then P is more close to L than M, that is LCP(L,M)+1'th character of P is same as L's but smaller than M's. l remain unchanged, but r = LCP(L,M), R=M.
+* if LCP(L,M) = l=LCP(P,L), then start comparison at l+1'th character of P against M. The character comparsions of P and M determines how to update L and R, thus l and r.
 
 # Longest common prefix of a Suffix Array
 ## how to efficiently compute LCP from given suffix array
