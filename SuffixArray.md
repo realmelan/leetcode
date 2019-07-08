@@ -57,6 +57,8 @@ However, if LCP(i,j) is provided, then the total comparisons could be O(m), thus
 * if LCP(L,M) < l=LCP(P,L), then P is more close to L than M, that is LCP(L,M)+1'th character of P is same as L's but smaller than M's. l remain unchanged, but r = LCP(L,M), R=M.
 * if LCP(L,M) = l=LCP(P,L), then start comparison at l+1'th character of P against M. The character comparsions of P and M determines how to update L and R, thus l and r.
 
+During the binary search, LCP(L, M) values are required for iterations. The values can be generated from LCP(L,L+1), that is LCP values for consecutive suffix pairs.
+
 # Longest common prefix of a Suffix Array
 ## how to efficiently compute LCP from given suffix array
 Kasai algorithm: https://www.geeksforgeeks.org/%C2%AD%C2%ADkasais-algorithm-for-construction-of-lcp-array-from-suffix-array/
