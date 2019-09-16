@@ -7,3 +7,7 @@ for i in 0 to (1<<n):
       dp[new_state] = dp[i] + entity
 
 ``` 
+
+Here is a sample code problem:
+* https://leetcode.com/problems/smallest-sufficient-team/
+
