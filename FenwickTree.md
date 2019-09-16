@@ -32,4 +32,5 @@ private:
   * solution: https://leetcode.com/problems/reverse-pairs/discuss/283504/C%2B%2B-O(nlgn)-solution-using-Fenwick-Tree(Binary-Indexed-Tree)-with-discretization
 
 # Reference
-https://en.wikipedia.org/wiki/Fenwick_tree
+* https://en.wikipedia.org/wiki/Fenwick_tree
+* https://www.topcoder.com/community/competitive-programming/tutorials/binary-indexed-trees/
