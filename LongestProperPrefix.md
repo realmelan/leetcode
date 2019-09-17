@@ -33,7 +33,6 @@ Here is how to search pattern inside text using longest proper prefix table
 ```c++
     void kmp_search(std::string& text, const std::string& pattern) {
         int nt = text.size();
-        text.push_back('$');
         int np = pattern.size();
         vector<int> lps = build_lps(pattern);
         int i = 0;
@@ -45,7 +44,8 @@ Here is how to search pattern inside text using longest proper prefix table
             }
             if (j == np) { // pattern found
                 cout << "pattern found at " << i-j+1 << endl;
-            } else {
+                j = lps[j-1];
+            } else if (i < nt && pattern[j] != text[i]) { // update j when there is a mismatch.
                 if (j > 0) {
                     j = lps[j-1];
                 } else {
