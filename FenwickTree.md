@@ -1,6 +1,6 @@
 Fenwick Tree, a.k.a. Binary Index Tree, is a data structure for prefix sum of an array.
 
-Fenwick Tree provides O(lgn) update of array element and O(lgn) of prefix sum of array[1..i]. A node i of Fenwick Tree has sum of subarray of length = value of its least significant bit set, up to i. For example, when i=14, the least significant bit set is 2, so there are 2 elements in the subarray up to i (inclusive).
+Fenwick Tree provides O(lgn) update of array element and O(lgn) of prefix sum of array[1..i]. A node i of Fenwick Tree has sum of subarray of length = value of its least significant bit set, up to i. For example, when i=14, the least significant bit set is 2, so there are 2 elements in the subarray up to i (inclusive). Note, the Fenwick tree is 1-based.
 
 To get sum of array[1..i], find out all bits that are set in i, iteratively remove the least significant bit in i and add the value at i to sum, until i becomes 0. For example, sum of subarray[1..14] = ft[14] + ft[12] + ft[8].
 
