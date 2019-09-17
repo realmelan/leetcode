@@ -13,18 +13,46 @@ longest proper prefix is used in KMP search, by skipping the length of the longe
                 ++i;
                 res[k] = i;
                 ++k;
-            } else {
-                res[k] = 0;
-                while (i > 0 && s[i] != s[k]) {
+            } else { // s[i] != s[k]
+                if (i > 0) {
+                    // move i back to next possible position and continue comparison
+                    // i might become 0.
                     i = res[i-1];
+                } else { // i=0 && s[i] != s[k]
+                    // this happens after i becomes 0 and still s[i] != s[k]
+                    res[k] = 0;
+                    ++k;
                 }
-                if (i > 0 || s[0] == s[k]) {
-                    res[k] = ++i;
-                }
-                ++k;
             }
         }
         return res;
+    }
+```
+
+Here is how to search pattern inside text using longest proper prefix table
+```c++
+    void kmp_search(std::string& text, const std::string& pattern) {
+        int nt = text.size();
+        text.push_back('$');
+        int np = pattern.size();
+        vector<int> lps = build_lps(pattern);
+        int i = 0;
+        int j = 0;
+        while (i < nt) {
+            if (text[i] == pattern[j]) {
+                ++i;
+                ++j;
+            }
+            if (j == np) { // pattern found
+                cout << "pattern found at " << i-j+1 << endl;
+            } else {
+                if (j > 0) {
+                    j = lps[j-1];
+                } else {
+                    ++i;
+                }
+            }
+        }
     }
 ```
 
