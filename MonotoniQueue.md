@@ -1,4 +1,5 @@
-Ref: https://abitofcs.blogspot.com/2014/11/data-structure-sliding-window-minimum.html
+# Ref:
+https://abitofcs.blogspot.com/2014/11/data-structure-sliding-window-minimum.html
 
 Data Structure: Sliding Window Minimum / Monotonic Queue
 Given an array of elements a0,a1,a2,…,an, and queries Q(i,i+L) which means "find the minimum element in ai,ai+1,…,ai+L ".
@@ -20,7 +21,7 @@ we remove that element as well. Lastly, we append ai at the back of D. Then we w
 when we reach index i. Since each element will enter and leave D only once, we have a total of O(N) operations. 
 
 
-New reference:
+# New reference:
 https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/discuss/204290/Monotonic-Queue-Summary
+
 Any DP problem where A[i] = min(A[j:k]) + C where j < k <= i
-This is a sliding max/min window problem.
