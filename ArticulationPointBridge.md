@@ -69,3 +69,4 @@ GetBridges(i, d)
 # Ref
 * https://www.geeksforgeeks.org/tarjan-algorithm-find-strongly-connected-components/
 * https://www.hackerearth.com/practice/algorithms/graphs/articulation-points-and-bridges/tutorial/
+* https://www.hackerearth.com/practice/notes/nj/ (this one is interesting!)
