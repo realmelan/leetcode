@@ -7,7 +7,7 @@ The articulation point of a graph can be found using Tarjan's algorithm, which i
 
 A node u can be an articulation point if and only if:
 * there is a node in the subtree rooted at u whose low point value is larger than u's depth.
-* it is root node of DFS tree and it has more than one child.
+* it is root node of DFS tree and it has more than one child. Here a child means DFS tree child. If the root has >=2 connected node, but only one DFS tree child(not visited by its decendants), then it is not a cut vertex.
 
 ![low point](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190702123438/TarjansAlgorithms.png "low point value")
 
