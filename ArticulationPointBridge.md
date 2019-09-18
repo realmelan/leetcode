@@ -1,3 +1,4 @@
+# Articulation Point
 Articulation Point or cut vertex is a node in a graph whose removal would result in more connected components of the graph.
 see https://en.wikipedia.org/wiki/Biconnected_component
 
@@ -31,8 +32,40 @@ GetArticulationPoints(i, d)
     if (parent[i] != null and isArticulation) or (parent[i] == null and childCount > 1)
         Output i as articulation point
 ```
+
+# Bridge
+A bridge is an edge, removing which would result in more connected component. It is very similar to articulation point.
+
+A bridge can be found using similar algorithm as the above articulation point algorithm. The only difference is that,
+for edge u->v, only when low point of (v) is strictly larger than depth(or discovery time) of u, then u->v is a bridge.
+The condition means that, if after entering subtree rooted at v, there is no back edge to u or u's ancestors, then u->v
+is a bridge.
+
+```
+GetBridges(i, d)
+    visited[i] = true
+    depth[i] = d
+    low[i] = d
+    childCount = 0
+    isArticulation = false
+    for each ni in adj[i]
+        if not visited[ni]
+            parent[ni] = i
+            GetArticulationPoints(ni, d + 1)
+            childCount = childCount + 1
+            if low[ni] > depth[i]
+                isBridge(u,v) = true
+            low[i] = Min(low[i], low[ni])
+        else if ni != parent[i]
+            low[i] = Min(low[i], depth[ni])
+    if (parent[i] != null and isArticulation) or (parent[i] == null and childCount > 1)
+        Output i as articulation point
+```
+
+
 # problems
 * https://leetcode.com/problems/critical-connections-in-a-network/
 
 # Ref
 * https://www.geeksforgeeks.org/tarjan-algorithm-find-strongly-connected-components/
+* https://www.hackerearth.com/practice/algorithms/graphs/articulation-points-and-bridges/tutorial/
