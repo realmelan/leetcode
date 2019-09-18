@@ -2,11 +2,14 @@ Articulation Point or cut vertex is a node in a graph whose removal would result
 see https://en.wikipedia.org/wiki/Biconnected_component
 
 The articulation point of a graph can be found using Tarjan's algorithm, which is a DFS search with two additional info:
-* depth, the depth in DFS stack
+* depth, the depth in DFS stack, or discovery time
 * low point, the depth value of the topmost ancestor that a node u and its subtree can go back to (via a back edge)
 
 A node u can be an articulation point if and only if:
 * there is a node in the subtree rooted at u whose low point value is larger than u's depth.
+* it is root node of DFS tree and it has more than one child.
+
+![low point](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190702123438/TarjansAlgorithms.png "low point value")
 
 ```
 GetArticulationPoints(i, d)
