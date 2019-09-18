@@ -8,6 +8,28 @@ The articulation point of a graph can be found using Tarjan's algorithm, which i
 A node u can be an articulation point if and only if:
 * there is a node in the subtree rooted at u whose low point value is larger than u's depth.
 
+```
+GetArticulationPoints(i, d)
+    visited[i] = true
+    depth[i] = d
+    low[i] = d
+    childCount = 0
+    isArticulation = false
+    for each ni in adj[i]
+        if not visited[ni]
+            parent[ni] = i
+            GetArticulationPoints(ni, d + 1)
+            childCount = childCount + 1
+            if low[ni] >= depth[i]
+                isArticulation = true
+            low[i] = Min(low[i], low[ni])
+        else if ni != parent[i]
+            low[i] = Min(low[i], depth[ni])
+    if (parent[i] != null and isArticulation) or (parent[i] == null and childCount > 1)
+        Output i as articulation point
+```
+# problems
+* https://leetcode.com/problems/critical-connections-in-a-network/
 
 # Ref
 https://www.geeksforgeeks.org/tarjan-algorithm-find-strongly-connected-components/
