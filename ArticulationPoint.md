@@ -32,4 +32,4 @@ GetArticulationPoints(i, d)
 * https://leetcode.com/problems/critical-connections-in-a-network/
 
 # Ref
-https://www.geeksforgeeks.org/tarjan-algorithm-find-strongly-connected-components/
+* https://www.geeksforgeeks.org/tarjan-algorithm-find-strongly-connected-components/
