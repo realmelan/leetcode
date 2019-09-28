@@ -12,6 +12,8 @@ for i in 0 to (1<<n):
 
 ``` 
 
+Though DFS with memoization and optimization also solves this type of problem.
+
 # problems
 * https://leetcode.com/problems/smallest-sufficient-team/
 * https://leetcode.com/problems/stickers-to-spell-word/
