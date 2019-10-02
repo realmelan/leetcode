@@ -6,8 +6,11 @@ The way to find Eulerian path is through DFS:
 def dfs(graph, u, res):
   for v in graph[u]:
     remove u->v from graph
-    res.add(v)
     dfs(graph, v)
+  res.add(v)
+ 
+dfs(graph, u, res)
+reverse(res)
 
 ```
 
