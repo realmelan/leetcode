@@ -28,7 +28,7 @@ procedure three-way-partition(A : array of values, mid : value):
         else:
             j ← j + 1
 ```
-
+j will be greater than i only if the mid is hit.
 
 
 # Ref
