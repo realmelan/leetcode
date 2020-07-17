@@ -29,6 +29,7 @@ GetArticulationPoints(i, d)
             low[i] = Min(low[i], low[ni])
         else if ni != parent[i]
             low[i] = Min(low[i], depth[ni])
+    // here childCount => # of subgraph 
     if (parent[i] != null and isArticulation) or (parent[i] == null and childCount > 1)
         Output i as articulation point
 ```
@@ -51,15 +52,13 @@ GetBridges(i, d)
     for each ni in adj[i]
         if not visited[ni]
             parent[ni] = i
-            GetArticulationPoints(ni, d + 1)
+            GetBridges(ni, d + 1)
             childCount = childCount + 1
             if low[ni] > depth[i]
                 isBridge(u,v) = true
             low[i] = Min(low[i], low[ni])
         else if ni != parent[i]
             low[i] = Min(low[i], depth[ni])
-    if (parent[i] != null and isArticulation) or (parent[i] == null and childCount > 1)
-        Output i as articulation point
 ```
 
 
