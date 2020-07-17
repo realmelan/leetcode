@@ -28,3 +28,4 @@ Note, this kind of problems has very small input set, like <=20 or so.
 
 # problems
 * https://leetcode.com/problems/parallel-courses-ii/discuss/708445/Weak-test-case-most-solutions-posted-using-depth-or-outdgree-are-wrong
+* https://leetcode.com/problems/smallest-sufficient-team/
