@@ -26,6 +26,12 @@ for (int i = avail; i > 0; i=(i-1)&avail) {
 
 Note, this kind of problems has very small input set, like <=20 or so.
 
+
+# Reference
+* https://www.hackerearth.com/practice/algorithms/dynamic-programming/bit-masking/tutorial/
+* http://codeforces.com/blog/entry/337
+
 # problems
 * https://leetcode.com/problems/parallel-courses-ii/discuss/708445/Weak-test-case-most-solutions-posted-using-depth-or-outdgree-are-wrong
 * https://leetcode.com/problems/smallest-sufficient-team/
+
