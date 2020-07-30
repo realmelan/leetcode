@@ -38,6 +38,27 @@ int binary_search(const int a[], const int size, const int val) {
     }
 ```
 
+# problems
+## peak finder
+* https://leetcode.com/problems/find-peak-element/submissions/
+```c++
+int findPeakElement(vector<int>& nums) {
+        int n = nums.size();
+        int l = 0, r = n - 1;
+        // invariant: nums[l-1] < nums[l] && nums[r] > nums[r+1]
+        // when l=r, l(or r) is a peak.
+        while (l < r) {
+            int m = l + (r-l) / 2;
+            if (nums[m] < nums[m+1]) {
+                l = m+1;
+            } else {
+                r = m;
+            }
+        }
+        return l;
+    }
+```
+
 # reference
 * https://reprog.wordpress.com/2010/04/25/writing-correct-code-part-1-invariants-binary-search-part-4a/
 * https://zhu45.org/posts/2018/Jan/12/how-to-write-binary-search-correctly/
