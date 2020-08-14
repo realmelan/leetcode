@@ -17,6 +17,8 @@ A subsequence of an array is obtained by deleting some number of elements (can b
 int constrainedSubsetSum(vector<int>& nums, int k) {
         int n = nums.size();
         // g(i): max seq sum up to i, containing nums[i]
+        // g(i) = max(g[i-k..i-1]) + nums[i]
+        // monotonic queue is able to find max(g[i-k..i-1]) in O(1).
         // f(i): max seq sum up to i, not necessarily containing nums[i]
         vector<int> f(n, 0), g(n, 0);
         g[0] = nums[0];
