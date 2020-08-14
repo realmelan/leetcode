@@ -1,10 +1,10 @@
 # Sliding window
 There are 2 different types of problems:
-* Find a maximum, minimum  or nearest larger/smaller within a bounded range
-* longest or shortest subarray/substring that matches certain constraints.
+* type 1: find a maximum, minimum  or nearest larger/smaller within a bounded range
+* type 2: longest or shortest subarray/substring that matches certain constraints.
 
 ## Type 1, Monotonic queue
-For type 1, Monotonic queue can be used, which achieves O(n) efficiency. 
+Monotonic queue can be used, which achieves O(n) efficiency. 
 A monotonic queue provides benefit that farther away useless elements are discarded
 as they are inferior to the element that's closer to current position.
 
@@ -44,7 +44,7 @@ int constrainedSubsetSum(vector<int>& nums, int k) {
 ```
 
 ## Type 2, Two pointer
-For type 2, use two pointer technique, right pointer to add counters and left pointer
+use two pointer technique, right pointer to add counters and left pointer
 to decrease counter. When conditions are met, left/right pointers form a valid range.
 
 ### Leetcode 1248, Count Number of Nice Subarrays
