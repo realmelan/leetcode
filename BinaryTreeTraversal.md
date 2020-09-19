@@ -55,6 +55,7 @@ void morris_traversal(node* root) {
             }
             // first time visiting cur
             if (pred->right == nullptr) {
+                // visit(root); // pre-order
                 prev->right = cur;
             } else {
                 // visit(cur); // in-order
@@ -62,8 +63,15 @@ void morris_traversal(node* root) {
                 pred->right = nullptr;
             }
         } else {
+            // visit(root); // in-order, pre-order
             root = root->right;
         }
     }
 }
 ```
+
+# Reference
+* Morris Traversal: https://www.cnblogs.com/AnnieKim/archive/2013/06/15/morristraversal.html
+
+# Problems:
+* https://leetcode.com/problems/recover-binary-search-tree/
