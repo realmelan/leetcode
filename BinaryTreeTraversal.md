@@ -48,18 +48,18 @@ All above traversal methods requires at least O(logn) space. Morris travesal is 
 void morris_traversal(node* root) {
     while (root) {
         if (root->left) {
-            node* cur = root;
-            node* pred = cur->left;
+            node* pred = root->left;
             while (pred && pred->right != nullptr && pred->right != cur) {
                 pred = pred->right;
             }
             // first time visiting cur
             if (pred->right == nullptr) {
                 // visit(root); // pre-order
-                prev->right = cur;
+                prev->right = root;
+                root = root->left;
             } else {
                 // visit(cur); // in-order
-                cur = pred->right;
+                root = pred->right;
                 pred->right = nullptr;
             }
         } else {
