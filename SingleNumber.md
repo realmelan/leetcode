@@ -10,7 +10,7 @@ int findNum(vector<int>& nums) {
       xk-1 = (xk-1&~i) | (xk-2&i);
       ...
       x2 = (x2&~i) | (x1&i);
-      x1 = (x1&~i) | ^t&i;
+      x1 = (x1&~i) | ~t&i;
   }
   return xp;
 }
@@ -38,7 +38,7 @@ int findNum(vector<int>& nums) {
         x[j] = (x[j]&~i) | (x[j-1]&i);
       }
       t |= x[1];
-      x1 = (x1&~i) | ^t&i;
+      x1 = (x1&~i) | ~t&i;
   }
   return xp;
 }
