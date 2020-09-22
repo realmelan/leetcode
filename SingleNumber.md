@@ -15,7 +15,6 @@ int findNum(vector<int>& nums) {
   return xp;
 }
 ```
-
 xj = bit representation of 1's which appear y\*k+j(y>=0, j<=k) times. For instance if the 31th bit is 1 in xj,
 then there are y\*k+j integers whose 31th bit is 1.
 
@@ -26,6 +25,24 @@ is represented by xj-1 and also appear in i, these bits appear y*k+j times now, 
 But x1 is different. If some bits appear k times, then 1 more appearance would come back to x1 again, so, bits that
 appear 0 times or k times, and also appear in i, they appear 1 times now. 0 or k times is not (x1, x2, ..., xk-1) times,
 so x1 = (x1&~i) | ^(x1|x2|x3|...|xk-2|xk-1)&i.
+
+
+Note: the code inside loop can be a loop too if k is too large.
+```c++
+int findNum(vector<int>& nums) {
+  vector<int> x(k+1, 0);
+  for (auto i : nums) {
+      int t = 0;
+      for (int j = k-1; j >= 2; --j) {
+        t |= x[j];
+        x[j] = (x[j]&~i) | (x[j-1]&i);
+      }
+      t |= x[1];
+      x1 = (x1&~i) | ^t&i;
+  }
+  return xp;
+}
+```
 
 # Problems:
 * https://leetcode.com/problems/single-number-ii/
