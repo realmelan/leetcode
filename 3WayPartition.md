@@ -4,13 +4,12 @@ elements larger than the mid value.
 
 
 ```
-# The following pseudocode for three-way partitioning assumes zero-based array indexing. 
-# It uses three indices i, j and n, maintaining the invariant that i ≤ j.
+The following pseudocode for three-way partitioning which assumes zero-based array indexing was proposed by Dijkstra himself.[2] It uses three indices i, j and k, maintaining the invariant that i ≤ j ≤ k.
 
-# n holds the lower boundary of numbers greater than mid.
-
-# j is the position of the number under consideration. And i is the boundary for
-# the numbers less than the mid value.
+Entries from 0 up to (but not including) i are values less than mid,
+entries from i up to (but not including) j are values equal to mid,
+entries from j up to (but not including) k are values not yet sorted, and
+entries from k to the end of the array are values greater than mid.
 
 procedure three-way-partition(A : array of values, mid : value):
     i ← 0
