@@ -12,6 +12,7 @@
 * **Virtual indexing**, access rotated array or wiggle sequence
 * **Binary Indexed Tree**, to achieve log(n) update/lookup functionality
 * **KMP**, to find longest proper prefix
+* **Knuth's next permunation**, to find next larger permutation
 
 
 
