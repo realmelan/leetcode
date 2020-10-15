@@ -1,18 +1,16 @@
-New Algorithms learned:
-
-Next Permutation from Knuth:
-    Starting from the last digit, find a digit which is smaller than the one on its right, named p; find another one digit from the last digit which is larger than the p, swap them; Now reverse the all digits after position p.
-    
-Gray code: consecutive codes differ in only one bit
-
-Le Bruijn sequence: given (n, k), generate a string of digits which covers all n-lenght k-digit sequence.
-    Generate a list of necklace (which is the largest among all rotations), and reduce them to their simplest form (A^p to A)
-
-Fenwick Tree:
-    To get sums of any range in O(logn) and update the data structure also in O(logn), Fenwich tree(aka Binary Indexed Tree) will help. see https://en.wikipedia.org/wiki/Fenwick_tree
-    
-Disjoint set:
-    https://en.wikipedia.org/wiki/Disjoint-set_data_structure
+# Knowledge
+* **Binary search Invariant**, to guarantee correct loop exit condition and return value
+* **Monotonic Queue/Stack**, to find maximum/minimum element or nearest larger/smaller element
+* **Union-Find**, to group elements
+* **Binary tree traversal**, recursive/non-recursive
+* **Permutation/Combination**, one position at a time
+* **Breadth first search**, to find optimized value of search
+* **Depth first search**, to find one solution
+* **Sliding window**, to move two pointers to locate subarray or subsequence that meet conditions
+* **Trie**, a tree structure to efficiently search a pattern or match
+* **Topological sort**, to find elements that meet conditions iteratively
+* **Virtual indexing**, access rotated array or wiggle sequence
+* **Binary Indexed Tree**, to achieve log(n) update/lookup functionality
 
 
 
