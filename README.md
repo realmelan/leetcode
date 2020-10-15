@@ -11,7 +11,7 @@
 * **Topological sort**, to find elements that meet conditions iteratively
 * **Virtual indexing**, access rotated array or wiggle sequence
 * **Binary Indexed Tree**, to achieve log(n) update/lookup functionality
-* **KMP**, to find longest string prefix
+* **KMP**, to find longest proper prefix
 
 
 
