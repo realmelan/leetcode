@@ -22,6 +22,5 @@ when we reach index i. Since each element will enter and leave D only once, we h
 
 
 # New reference:
-https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/discuss/204290/Monotonic-Queue-Summary
-
-Any DP problem where A[i] = min(A[j:k]) + C where j < k <= i
+* https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/discuss/204290/Monotonic-Queue-Summary
+* https://reprog.wordpress.com/2010/04/25/writing-correct-code-part-1-invariants-binary-search-part-4a/
