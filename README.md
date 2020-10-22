@@ -13,6 +13,8 @@
 * **Binary Indexed Tree**, to achieve log(n) update/lookup functionality
 * **KMP**, to find longest proper prefix
 * **Knuth's next permunation**, to find next larger permutation
+* **Floyd-Warshall algorithm**, to compute shortest distance of any pair within a graph
+* **Dijkstra algorithm**, to compute shortest distance from given node to any other nodes within a graph, priority queue can be used to get next nearest node.
 
 
 
