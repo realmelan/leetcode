@@ -8,7 +8,7 @@
 * **Depth first search**, to find one solution
 * **Sliding window**, to move two pointers to locate subarray or subsequence that meet conditions
 * **Trie**, a tree structure to efficiently search a pattern or match
-* **Topological sort**, to find elements that meet conditions iteratively
+* **Topological sort**, to find elements that meet conditions iteratively, like in a combinatorial gaming.
 * **Virtual indexing**, access rotated array or wiggle sequence
 * **Binary Indexed Tree**, to achieve log(n) update/lookup functionality
 * **KMP**, to find longest proper prefix
