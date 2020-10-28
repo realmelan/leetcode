@@ -20,3 +20,8 @@
 
 # Ref
 * **Very Complete** https://cp-algorithms.com
+
+<iframe
+  src="https://cp-algorithms.com"
+  style="width:100%; height:300px;"
+></iframe>
