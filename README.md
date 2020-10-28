@@ -17,7 +17,8 @@
 * **Dijkstra algorithm**, to compute shortest distance from given node to any other nodes within a graph, priority queue can be used to get next nearest node.
 * **Game on graphs**, a two-player game, both play optimally. starting from winning/losing states, and reverse back to unknown states, using topological sort.
 
-
+## Miscellaneous
+* Enumerating subsets, https://cp-algorithms.com/algebra/all-submasks.html
 
 # Ref
 * **Very Complete** https://cp-algorithms.com
