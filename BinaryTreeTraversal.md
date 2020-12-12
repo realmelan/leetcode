@@ -70,8 +70,44 @@ void morris_traversal(node* root) {
 }
 ```
 
+# Binary tree iterator
+An binary tree iterator is used to visit all nodes of binary tree in paticurlar order, pre-order, in-order or post-order.
+
+For in-order, a stack of path from root to current node can be used to implement iterator. The top node at the stack is current node, and to get to next node, just check whether current node has right child or not: if so push to stack of all the leftmost child of the right child.
+
+```
+class BSTIterator {
+public:
+    BSTIterator(TreeNode* root) {
+        goLeft(root);
+    }
+    
+    int next() {
+        TreeNode* cur = p.top();
+        p.pop();
+        if (cur->right) {
+            goLeft(cur->right);
+        }
+        return cur->val;
+    }
+    
+    bool hasNext() {
+        return p.size();
+    }
+private:
+    stack<TreeNode*> p;
+    void goLeft(TreeNode* cur) {
+        while (cur) {
+            p.push(cur);
+            cur = cur->left;
+        }
+    }
+};
+```
+
 # Reference
 * Morris Traversal: https://www.cnblogs.com/AnnieKim/archive/2013/06/15/morristraversal.html
 
 # Problems:
 * https://leetcode.com/problems/recover-binary-search-tree/
+* https://leetcode.com/problems/binary-search-tree-iterator/
