@@ -38,6 +38,13 @@ int binary_search(const int a[], const int size, const int val) {
     }
 ```
 
+# How to choose pivot element
+Say we want to find media number of a list of large sparse number array stored on different machines. Given a number m, we can ask these machines the # of elements smaller than m, and if the count is smaller than n/2, then we should consider ranges larger than m. So, the search space would be [min, max] of all the numbers on these machines, and the time cost is O(lg(max-min)).
+
+If these numbers are very sparse, meaning # of total numbers << (max-min), how can we reduce the # of searches?
+
+The problem with plain mid value of m = (l+r)/2 is that m might not be an existing element of the array. If we can find an existing pivot element between l and r, then the search space would be \# of array elements. One simple way to get such pivot elements would be random element between l and r.
+
 # problems
 ## peak finder
 * https://leetcode.com/problems/find-peak-element/submissions/
