@@ -1,4 +1,4 @@
-Longest Common Subsequence
+# Longest Common Subsequence
 
 # lenght of LCS
 ```c++
