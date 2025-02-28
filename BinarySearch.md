@@ -69,3 +69,4 @@ int findPeakElement(vector<int>& nums) {
 # reference
 * https://reprog.wordpress.com/2010/04/25/writing-correct-code-part-1-invariants-binary-search-part-4a/
 * https://zhu45.org/posts/2018/Jan/12/how-to-write-binary-search-correctly/
+* https://liuzhenglaichn.gitbook.io/algorithm/binary-search
