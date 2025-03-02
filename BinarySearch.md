@@ -14,6 +14,7 @@ against target, consider how to change the lower bound and upper bound of curren
 * determine whether to use lower < upper or lower <= upper as loop terminiation condition. This depends on how range is set up in step 1
 and the invariant. For example, if the target position always exists, then lower < upper might be used, and result would be lower or upper
 at loop termination; but if position might not exist, then lower <= upper seems a valid termination condition.
+* to avoid infinite loop, adjust mid=(lo+up)/2 to mid=(lo+up+1)/2. mid is a value we choose  to split the search range(as long as it is half split). When you have lo=mid, adjust it to mid=(lo+up+1)/2 such that when lo=up-1, mid=up, and you can exit the loop.
 
 # code exmaple
 Use below code example by Mike Taylor in "Writing correct code" to understand how to apply the steps in binary search
