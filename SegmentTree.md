@@ -8,3 +8,8 @@ Time for update and query is similar to Fenwick tree, O(logN). However the const
 # update tree
 
 # query tree
+
+# Reference
+* https://www.hackerearth.com/practice/data-structures/advanced-data-structures/segment-trees/tutorial/
+* https://cp-algorithms.com/data_structures/segment_tree.html
+
