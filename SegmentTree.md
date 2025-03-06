@@ -10,7 +10,8 @@ $2i + 1$ . Equivalently, the parent of a vertex at index  
 $i$  is stored at  
 $i/2$  (integer division).
 
-# build tree
+# implementation
+## build tree
 The procedure for constructing the Segment Tree from a given array  
 $a[]$  looks like this: it is a recursive function with the parameters  
 $a[]$  (the input array),  
@@ -33,7 +34,7 @@ void build(int a[], int v, int tl, int tr) {
 }
 ```
 
-# update tree
+## update tree
 ```c++
 void update(int v, int tl, int tr, int pos, int new_val) {
     if (tl == tr) {
@@ -49,7 +50,7 @@ void update(int v, int tl, int tr, int pos, int new_val) {
 }
 ```
 
-# query tree
+## query tree
 Further the function for answering sum queries is also a recursive function, which receives as parameters information about the current vertex/segment (i.e. the index  
 $v$  and the boundaries  
 $tl$  and  
@@ -70,7 +71,72 @@ int sum(int v, int tl, int tr, int l, int r) {
 }
 ```
 
+# lazy propogation
+To update a range, you may have to update one position of the range at a time, and potential runtime is about O(N).
+Lazy propogation requires an additional lazy array as a backup storage, same size as original tree node array. During range update, if a node is completely covered by the range, it just update current node and stops, but leaving a non-zero value in the lazy array for its children nodes. Whenever a node is visited (for update or query), and if there is pending lazy update, apply update to current node and leaving lazy update  for its children nodes.
+During query, when returning a node values, if there is pending update, apply the lazy update.
+
+```c++
+
+int a[];
+int lazy[];
+int update(int v, int tl, int tr, int l, int r, int val) {
+    if lazy[v] != 0 {
+        a[v] += (tr-tl+1)*lazy[v]
+        if tr != tl {
+            lazy[v*2] += lazy[v]
+            lazy[v*2+1] += lazy[v]
+        }
+        lazy[v] = 0
+    }
+    if tr < tl || l > tr || r < tl {
+        return
+    }
+    if l <= tl && tr <= r {
+        a[v] += (tr-tl+1)*val
+        if tr != tl {
+            lazy[v*2] += lazy[v]
+            lazy[v*2+1] += lazy[v]
+        }
+        return
+    }
+    int tm = (tl + tr) / 2
+    update(v*2, tl, tm, l, r, val)
+    update(v*2+1, tm+1, tr, l, r, val)
+    a[v] = a[v*2] + a[v*2+1]
+}
+
+int sum(int v, int tl, int tr, int l, int r) {
+    if lazy[v] != 0 {
+        a[v] += (tr-tl+1)*lazy[v]
+        if tr != tl {
+            lazy[v*2] += lazy[v]
+            lazy[v*2+1] += lazy[v]
+        }
+        lazy[v] = 0
+    }
+    if tr < tl || l > tr || r < tl {
+        return 0
+    }
+    if l <= tl && tr <= r {
+        return a[v]
+    }
+    int tm = (tl + tr) / 2
+    return sum(v*2, tl, tm, l, r) + sum(v*2+1, tm+1, tr, l, r)
+}
+
+```
+
+# Segment Tree vs Fenwick Tree
+| Segment Tree | Fenwick Tree |
+| ---- | ---- |
+| use up to 4*N nodes, internal nodes for ranges  | use N nodes, each node is for one point in range |
+| even both support O(logN) update and query, segment tree has high cost factor | lower cost factor, thus more efficient |
+| support other types of queries like mininal/maximal values | only support sum query |
+
+
+
 # Reference
 * https://www.hackerearth.com/practice/data-structures/advanced-data-structures/segment-trees/tutorial/
 * https://cp-algorithms.com/data_structures/segment_tree.html
-
+* https://dev.to/wengao/fenwick-tree-vs-segment-tree-1edk
